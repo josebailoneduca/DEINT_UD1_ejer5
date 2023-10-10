@@ -5,7 +5,7 @@
 package ud1_ejer5.gui.dialogos;
 
 /**
- *
+ * Dialogo Acerda De...
  * @author Bailon
  */
 public class DAcercaDe extends javax.swing.JDialog {
@@ -150,6 +150,10 @@ public class DAcercaDe extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Accion del boton cerrar
+     * @param evt 
+     */
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed

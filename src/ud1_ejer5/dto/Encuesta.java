@@ -7,20 +7,31 @@ package ud1_ejer5.dto;
 import java.util.ArrayList;
 
 /**
- *
+ * DTO para almacenar los datos de una encuesta
  * @author Bailon
  */
 public class Encuesta {
+    //ATRIBUTOS
+    private String profesion;
+    private int nHermanos;
+    private String edad;
+    private String sexo;
+    private ArrayList<String> deportes;
+    private int compras;
+    private int tv;
+    private int cine;
 
-    String profesion;
-    int nHermanos;
-    String edad;
-    String sexo;
-    ArrayList<String> deportes;
-    int compras;
-    int tv;
-    int cine;
-
+    /**
+     * Constructor
+     * @param profesion
+     * @param nHermanos
+     * @param edad
+     * @param sexo
+     * @param deportes ArrayList<String> listando los deportes practicados
+     * @param compras
+     * @param tv
+     * @param cine 
+     */
     public Encuesta(String profesion, int nHermanos, String edad, String sexo, ArrayList<String> deportes, int compras, int tv, int cine) {
         this.profesion = profesion;
         this.nHermanos = nHermanos;
@@ -32,6 +43,7 @@ public class Encuesta {
         this.cine = cine;
     }
 
+    // GETTERS Y SETTERS
     public String getProfesion() {
         return profesion;
     }
@@ -96,6 +108,19 @@ public class Encuesta {
         this.cine = cine;
     }
 
+    /**
+     * Convierte los datos de la encuesta en un String[] con el siguiente orde:
+     * 0 profesion
+     * 1 nHermanos
+     * 2 edad
+     * 3 sexo
+     * 4 deportes (separado por coma)
+     * 5 compras
+     * 6 tv
+     * 7 cine
+     * 
+     * @return El String[] conteniendo los datos
+     */
     public String[] toArrayString() {
         String[] salida = new String[8];
         salida[0] = this.profesion;

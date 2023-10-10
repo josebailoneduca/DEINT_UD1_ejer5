@@ -14,7 +14,8 @@ import ud1_ejer5.dto.Encuesta;
 import ud1_ejer5.logica.Logica;
 
 /**
- *
+ * Dialogo de rellenar encuesta
+ * 
  * @author Jose Javier Bailon Ortiz
  */
 public class DEncuesta extends javax.swing.JDialog {
@@ -290,6 +291,10 @@ public class DEncuesta extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputHombreActionPerformed
 
+    /**
+     * Accion realizada cuando el checkbox inputPracticaDeporte es cambiado
+     * @param evt 
+     */
     private void inputPracticaDeporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPracticaDeporteActionPerformed
         if (this.inputPracticaDeporte.isSelected())
             this.inputDeportes.setEnabled(true);
@@ -299,25 +304,40 @@ public class DEncuesta extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_inputPracticaDeporteActionPerformed
 
+    /**
+     * Accion del boton cancelar
+     * @param evt 
+     */
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    /**
+     * Accion del boton aceptar. Comprueba que este la profesion rellena y si lo
+     * esta entonces recopila todos los datos y envia a Logica la orden de agregar
+     * una nueva Encuesta
+     * @param evt 
+     */
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        //1-Comprobar si profesion esta rellenado, de lo contrario avisar
         String profesion = this.inputProfesion.getText();
         if (profesion==null||profesion.length()==0){
             mostrarError("Debe introducir una profesion");
             return;
         }
+        //recoger el resto de datos
         int nHermanos = (int)this.inputHermanos.getValue();
         String edad = this.inputEdad.getSelectedItem().toString();
+        //gestion del radiobutton group para la seleccion de sexo
         ButtonModel seleccionado = this.btnGroupSexo.getSelection();
         String sexo = (seleccionado==null)?"":seleccionado.getActionCommand();
+        
         boolean practicaDeportes = this.inputPracticaDeporte.isSelected();
         ArrayList<String> deportes = new ArrayList(inputDeportes.getSelectedValuesList());
         int compras = this.inputCompras.getValue();
         int tv = this.inputTv.getValue();
         int cine = this.inputCine.getValue();
+        //crear DTO encuesta
         Encuesta encuesta = new Encuesta(profesion, nHermanos, edad, sexo, deportes, compras, tv, cine);
         //agregar la encuesta
         Logica.addEncuesta(encuesta);

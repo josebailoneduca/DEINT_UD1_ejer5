@@ -14,7 +14,7 @@ import ud1_ejer5.gui.dialogos.DEncuesta;
 import ud1_ejer5.logica.Logica;
 
 /**
- *
+ * Jframe VPrincipal con la ventana principal de la aplicacion, el menu y la tabla de encuestas introducidas
  * @author Bailon
  */
 public class VPrincipal extends javax.swing.JFrame {
@@ -24,26 +24,33 @@ public class VPrincipal extends javax.swing.JFrame {
      */
     public VPrincipal() {
         initComponents();
+        //inicializar la tabla
         actualizarTabla();
     }
     
     
     
-    
+    /**
+     * Actualiza la tabla conformando su modelo e introduciendo los datos
+     * necesarios
+     */
     private void actualizarTabla(){
         
+        //definicion del tableModel
         DefaultTableModel dtm = new DefaultTableModel();
         String [] columnas = new String[]{"Profesion","Nº Hermanos","Edad","Sexo","Deportes practicados","Compras","TV","Cine"};
         dtm.setColumnIdentifiers(columnas);
         
+        //agregar row al modelo
         List<Encuesta> encuestas = Logica.getEncuestas();
-        
         for (Encuesta encuesta : encuestas) {
             dtm.addRow(encuesta.toArrayString());
         }
         
+        //establecer el modelo como modelo de la tabla
         this.tabla.setModel(dtm);
         
+        //definir la tabla como no editable
         this.tabla.setEnabled(false);
         
     }
@@ -69,7 +76,7 @@ public class VPrincipal extends javax.swing.JFrame {
         menuItemAcercaDe = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Misterio");
+        setTitle("Encuestas");
         setIconImage(new ImageIcon("./src/ud1_ejer5/gui/img/logo.png").getImage());
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -156,21 +163,34 @@ public class VPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Accion del menu salir
+     * @param evt 
+     */
     private void menuItemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_menuItemSalirActionPerformed
 
+    /**
+     * Accion del menu Acerca de
+     * @param evt 
+     */
     private void menuItemAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcercaDeActionPerformed
            DAcercaDe dialogo = new DAcercaDe(this, true);
            dialogo.setLocationRelativeTo(this);
            dialogo.setVisible(true);
     }//GEN-LAST:event_menuItemAcercaDeActionPerformed
 
+    /**
+     * Accion del menu Realizar Encuesta
+     * @param evt 
+     */
     private void menuItemRealizarEncuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRealizarEncuestaActionPerformed
+        //abrir el dialogo de rellenar una encuesta
         DEncuesta dEncuesta = new DEncuesta(this, true);
         dEncuesta.setLocationRelativeTo(this);
         dEncuesta.setVisible(true);
-        
+        //actualizar los datos de la tabla tras el cierre del dialogo de encuesta
         this.actualizarTabla();
     }//GEN-LAST:event_menuItemRealizarEncuestaActionPerformed
 

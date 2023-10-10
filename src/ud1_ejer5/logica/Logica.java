@@ -9,22 +9,34 @@ import ud1_ejer5.dto.Encuesta;
 import ud1_ejer5.gui.ventanas.VPrincipal;
 
 /**
- *
+ * Punto de entrada del programa. Contiene la logica de negocio y el almacenamiento de los datos
  * @author Bailon
  */
 public class Logica {
     // ATRIBUTOS
-    
     private static ArrayList<Encuesta> encuestas = new ArrayList<Encuesta>();
 
+    /**
+     * Devuelve el listado de encuestas
+     * @return 
+     */
     public static ArrayList<Encuesta> getEncuestas() {
         return encuestas;
     }
     
+    /**
+     * Agrega una encuesta a la lista
+     * @param encuesta 
+     */
     public static void addEncuesta(Encuesta encuesta){
         encuestas.add(encuesta);
     }
     
+    
+    /**
+     * MAIN inicio del programa, define el lookandfell y abre una nueva ventana principal
+     * @param args 
+     */
     public static void main(String[] args) {
                 /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
