@@ -159,6 +159,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="inputProfesion">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Introducir la profesion"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbHermanos">
           <Properties>
@@ -170,6 +173,7 @@
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="N&#xfa;mero de hermanos que se tienen"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbEdad">
@@ -187,6 +191,7 @@
                 <StringItem index="3" value="Mayor de 65"/>
               </StringArray>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Elegir un rango de edad"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -205,11 +210,13 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="inputHombre" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="inputMujer" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="inputNSNC" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -220,6 +227,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="inputHombre" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="inputMujer" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="inputNSNC" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="16" max="32767" attributes="0"/>
                   </Group>
@@ -233,6 +241,7 @@
                   <ComponentRef name="btnGroupSexo"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Hombre"/>
+                <Property name="toolTipText" type="java.lang.String" value="Seleccione si es hombre"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="&quot;Hombre&quot;" type="code"/>
                 </Property>
@@ -247,8 +256,21 @@
                   <ComponentRef name="btnGroupSexo"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mujer"/>
+                <Property name="toolTipText" type="java.lang.String" value="Seleccione si es mujer"/>
                 <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="&quot;Mujer&quot;" type="code"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="inputNSNC">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="btnGroupSexo"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="NS/NC"/>
+                <Property name="toolTipText" type="java.lang.String" value="No sabe / no contesta"/>
+                <Property name="actionCommand" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;NS/NC&quot;" type="code"/>
                 </Property>
               </Properties>
             </Component>
@@ -257,6 +279,7 @@
         <Component class="javax.swing.JCheckBox" name="inputPracticaDeporte">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xbf;Practica alg&#xfa;n deporte?"/>
+            <Property name="toolTipText" type="java.lang.String" value="Seleccione si practica algun deporte. Si se activa es obligatorio elegir al menos un deporte"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputPracticaDeporteActionPerformed"/>
@@ -303,6 +326,7 @@
                         <StringItem index="5" value="Otros"/>
                       </StringArray>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="Puede seleccionar varios pulsando la tecla Control mientras clica en las opciones"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
@@ -332,6 +356,7 @@
             <Property name="minimum" type="int" value="1"/>
             <Property name="paintLabels" type="boolean" value="true"/>
             <Property name="snapToTicks" type="boolean" value="true"/>
+            <Property name="toolTipText" type="java.lang.String" value="Grado de aficion a compras"/>
             <Property name="value" type="int" value="5"/>
           </Properties>
         </Component>
@@ -347,6 +372,7 @@
             <Property name="minimum" type="int" value="1"/>
             <Property name="paintLabels" type="boolean" value="true"/>
             <Property name="snapToTicks" type="boolean" value="true"/>
+            <Property name="toolTipText" type="java.lang.String" value="Grado de aficion a ver la televisi&#xf3;n"/>
             <Property name="value" type="int" value="5"/>
           </Properties>
         </Component>
@@ -362,12 +388,14 @@
             <Property name="minimum" type="int" value="1"/>
             <Property name="paintLabels" type="boolean" value="true"/>
             <Property name="snapToTicks" type="boolean" value="true"/>
+            <Property name="toolTipText" type="java.lang.String" value="Grado de aficion a ir al cine"/>
             <Property name="value" type="int" value="5"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAceptar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Terminar la encuesta"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAceptarActionPerformed"/>
@@ -376,6 +404,7 @@
         <Component class="javax.swing.JButton" name="btnCancelar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
+            <Property name="toolTipText" type="java.lang.String" value="Cancelar la encuesta"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>

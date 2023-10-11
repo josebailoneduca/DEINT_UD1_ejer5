@@ -102,7 +102,6 @@ public class VPrincipal extends javax.swing.JFrame {
 
         menuArchivo.setMnemonic('a');
         menuArchivo.setText("Archivo");
-        menuArchivo.setToolTipText("");
 
         menuItemSalir.setMnemonic('s');
         menuItemSalir.setText("Salir");

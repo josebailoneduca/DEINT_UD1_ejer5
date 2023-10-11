@@ -8,9 +8,11 @@ import java.util.ArrayList;
 
 /**
  * DTO para almacenar los datos de una encuesta
+ *
  * @author Bailon
  */
 public class Encuesta {
+
     //ATRIBUTOS
     private String profesion;
     private int nHermanos;
@@ -23,6 +25,7 @@ public class Encuesta {
 
     /**
      * Constructor
+     *
      * @param profesion
      * @param nHermanos
      * @param edad
@@ -30,7 +33,7 @@ public class Encuesta {
      * @param deportes ArrayList<String> listando los deportes practicados
      * @param compras
      * @param tv
-     * @param cine 
+     * @param cine
      */
     public Encuesta(String profesion, int nHermanos, String edad, String sexo, ArrayList<String> deportes, int compras, int tv, int cine) {
         this.profesion = profesion;
@@ -110,15 +113,9 @@ public class Encuesta {
 
     /**
      * Convierte los datos de la encuesta en un String[] con el siguiente orde:
-     * 0 profesion
-     * 1 nHermanos
-     * 2 edad
-     * 3 sexo
-     * 4 deportes (separado por coma)
-     * 5 compras
-     * 6 tv
-     * 7 cine
-     * 
+     * 0 profesion 1 nHermanos 2 edad 3 sexo 4 deportes (separado por coma) 5
+     * compras 6 tv 7 cine
+     *
      * @return El String[] conteniendo los datos
      */
     public String[] toArrayString() {
@@ -127,10 +124,10 @@ public class Encuesta {
         salida[1] = "" + this.nHermanos;
         salida[2] = this.edad;
         salida[3] = this.sexo;
-        if (this.deportes != null) {
+        if (deportes != null && deportes.size() > 0) {
             salida[4] = String.join(",", deportes);
         } else {
-            salida[4] = "";
+            salida[4] = "Ninguno";
         }
         salida[5] = "" + this.compras;
         salida[6] = "" + this.tv;

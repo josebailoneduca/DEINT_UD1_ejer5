@@ -46,6 +46,7 @@ public class DEncuesta extends javax.swing.JDialog {
         panelSexo = new javax.swing.JPanel();
         inputHombre = new javax.swing.JRadioButton();
         inputMujer = new javax.swing.JRadioButton();
+        inputNSNC = new javax.swing.JRadioButton();
         inputPracticaDeporte = new javax.swing.JCheckBox();
         panelDeportes = new javax.swing.JPanel();
         scrollDeportes = new javax.swing.JScrollPane();
@@ -66,18 +67,23 @@ public class DEncuesta extends javax.swing.JDialog {
 
         lbProfesion.setText("Profesión:");
 
+        inputProfesion.setToolTipText("Introducir la profesion");
+
         lbHermanos.setText("Nº Hermanos:");
 
         inputHermanos.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        inputHermanos.setToolTipText("Número de hermanos que se tienen");
 
         lbEdad.setText("Edad:");
 
         inputEdad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entre 18 y 30", "Entre 31 y 50", "Entre 51 y 65", "Mayor de 65" }));
+        inputEdad.setToolTipText("Elegir un rango de edad");
 
         panelSexo.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo"));
 
         btnGroupSexo.add(inputHombre);
         inputHombre.setText("Hombre");
+        inputHombre.setToolTipText("Seleccione si es hombre");
         inputHombre.setActionCommand("Hombre");
         inputHombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,18 +93,26 @@ public class DEncuesta extends javax.swing.JDialog {
 
         btnGroupSexo.add(inputMujer);
         inputMujer.setText("Mujer");
+        inputMujer.setToolTipText("Seleccione si es mujer");
         inputMujer.setActionCommand("Mujer");
+
+        btnGroupSexo.add(inputNSNC);
+        inputNSNC.setText("NS/NC");
+        inputNSNC.setToolTipText("No sabe / no contesta");
+        inputNSNC.setActionCommand("NS/NC");
 
         javax.swing.GroupLayout panelSexoLayout = new javax.swing.GroupLayout(panelSexo);
         panelSexo.setLayout(panelSexoLayout);
         panelSexoLayout.setHorizontalGroup(
             panelSexoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSexoLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(24, 24, 24)
                 .addComponent(inputHombre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addComponent(inputMujer)
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(inputNSNC)
+                .addGap(23, 23, 23))
         );
         panelSexoLayout.setVerticalGroup(
             panelSexoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,11 +120,13 @@ public class DEncuesta extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(panelSexoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputHombre)
-                    .addComponent(inputMujer))
+                    .addComponent(inputMujer)
+                    .addComponent(inputNSNC))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
         inputPracticaDeporte.setText("¿Practica algún deporte?");
+        inputPracticaDeporte.setToolTipText("Seleccione si practica algun deporte. Si se activa es obligatorio elegir al menos un deporte");
         inputPracticaDeporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputPracticaDeporteActionPerformed(evt);
@@ -124,6 +140,7 @@ public class DEncuesta extends javax.swing.JDialog {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        inputDeportes.setToolTipText("Puede seleccionar varios pulsando la tecla Control mientras clica en las opciones");
         inputDeportes.setEnabled(false);
         scrollDeportes.setViewportView(inputDeportes);
 
@@ -147,6 +164,7 @@ public class DEncuesta extends javax.swing.JDialog {
         inputCompras.setMinimum(1);
         inputCompras.setPaintLabels(true);
         inputCompras.setSnapToTicks(true);
+        inputCompras.setToolTipText("Grado de aficion a compras");
         inputCompras.setValue(5);
 
         lbTv.setText("Ver Televisión:");
@@ -156,6 +174,7 @@ public class DEncuesta extends javax.swing.JDialog {
         inputTv.setMinimum(1);
         inputTv.setPaintLabels(true);
         inputTv.setSnapToTicks(true);
+        inputTv.setToolTipText("Grado de aficion a ver la televisión");
         inputTv.setValue(5);
 
         lbCine.setText("Ir al cine:");
@@ -165,9 +184,11 @@ public class DEncuesta extends javax.swing.JDialog {
         inputCine.setMinimum(1);
         inputCine.setPaintLabels(true);
         inputCine.setSnapToTicks(true);
+        inputCine.setToolTipText("Grado de aficion a ir al cine");
         inputCine.setValue(5);
 
         btnAceptar.setText("Aceptar");
+        btnAceptar.setToolTipText("Terminar la encuesta");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
@@ -175,6 +196,7 @@ public class DEncuesta extends javax.swing.JDialog {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar la encuesta");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -319,24 +341,42 @@ public class DEncuesta extends javax.swing.JDialog {
      * @param evt 
      */
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        //1-Comprobar si profesion esta rellenado, de lo contrario avisar
+        //RECOGIDA DE DATOS
+        //profesion
         String profesion = this.inputProfesion.getText();
-        if (profesion==null||profesion.length()==0){
-            mostrarError("Debe introducir una profesion");
-            return;
-        }
         //recoger el resto de datos
         int nHermanos = (int)this.inputHermanos.getValue();
         String edad = this.inputEdad.getSelectedItem().toString();
         //gestion del radiobutton group para la seleccion de sexo
         ButtonModel seleccionado = this.btnGroupSexo.getSelection();
         String sexo = (seleccionado==null)?"":seleccionado.getActionCommand();
-        
+        //deportes
         boolean practicaDeportes = this.inputPracticaDeporte.isSelected();
         ArrayList<String> deportes = new ArrayList(inputDeportes.getSelectedValuesList());
+        //preferencias
         int compras = this.inputCompras.getValue();
         int tv = this.inputTv.getValue();
         int cine = this.inputCine.getValue();
+        
+        
+        //VALIDACIONES
+        //Validacion de profesion. Profesion es obligatorio rellenarlo
+        if (profesion==null||profesion.length()==0){
+            mostrarError("Debe introducir una profesion");
+            return;
+        }
+        //validacion de deportes. Si elige que practica debe elegir al menos un deporte
+        if (practicaDeportes&&deportes.size()==0){
+            mostrarError("Si maraca que practica algún deporte debe eligir al menos un deporte");
+            return;
+        }
+        //validacion sexo
+        if (sexo.equals("")){
+            mostrarError("Debe elegir alguna opción de sexo");
+            return;
+        }
+        
+        
         //crear DTO encuesta
         Encuesta encuesta = new Encuesta(profesion, nHermanos, edad, sexo, deportes, compras, tv, cine);
         //agregar la encuesta
@@ -358,6 +398,7 @@ public class DEncuesta extends javax.swing.JDialog {
     private javax.swing.JSpinner inputHermanos;
     private javax.swing.JRadioButton inputHombre;
     private javax.swing.JRadioButton inputMujer;
+    private javax.swing.JRadioButton inputNSNC;
     private javax.swing.JCheckBox inputPracticaDeporte;
     private javax.swing.JTextField inputProfesion;
     private javax.swing.JSlider inputTv;
