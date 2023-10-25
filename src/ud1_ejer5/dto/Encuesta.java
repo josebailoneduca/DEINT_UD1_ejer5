@@ -7,7 +7,7 @@ package ud1_ejer5.dto;
 import java.util.ArrayList;
 
 /**
- * DTO para almacenar los datos de una encuesta
+ * DTO para almacenar los datos de una encuesta 
  *
  * @author Bailon
  */
