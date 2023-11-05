@@ -14,7 +14,7 @@ import ud1_ejer5.dto.Encuesta;
 import ud1_ejer5.logica.Logica;
 
 /**
- * Dialogo de rellenar encuesta
+ * Dialogo para rellenar encuesta
  * 
  * @author Jose Javier Bailon Ortiz
  */
@@ -315,9 +315,11 @@ public class DEncuesta extends javax.swing.JDialog {
 
     /**
      * Accion realizada cuando el checkbox inputPracticaDeporte es cambiado
+     * Activa o desactiva el input de deporte segun el checkbox este marcado o no
      * @param evt 
      */
     private void inputPracticaDeporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPracticaDeporteActionPerformed
+        //activar o desactivar el input de deporte segun el estado del checkbox
         if (this.inputPracticaDeporte.isSelected())
             this.inputDeportes.setEnabled(true);
         else{
@@ -376,7 +378,6 @@ public class DEncuesta extends javax.swing.JDialog {
             return;
         }
         
-        
         //crear DTO encuesta
         Encuesta encuesta = new Encuesta(profesion, nHermanos, edad, sexo, deportes, compras, tv, cine);
         //agregar la encuesta
@@ -416,6 +417,10 @@ public class DEncuesta extends javax.swing.JDialog {
     private javax.swing.JSeparator separador;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Muestra el dialogo de error
+     * @param msg Mensaje para el dialogo
+     */
     private void mostrarError(String msg) {
           DError dError = new DError((Frame) this.getParent(), true, msg);
           dError.setLocationRelativeTo(this);

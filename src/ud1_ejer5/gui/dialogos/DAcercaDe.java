@@ -6,12 +6,13 @@ package ud1_ejer5.gui.dialogos;
 
 /**
  * Dialogo Acerda De...
- * @author Bailon
+ * 
+ * @author Jose Javier BO
  */
 public class DAcercaDe extends javax.swing.JDialog {
 
     /**
-     * Creates new form DAcercaDe
+     * Constructor
      */
     public DAcercaDe(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
