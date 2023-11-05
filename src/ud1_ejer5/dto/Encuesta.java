@@ -124,7 +124,7 @@ public class Encuesta {
         salida[1] = "" + this.nHermanos;
         salida[2] = this.edad;
         salida[3] = this.sexo;
-        if (deportes != null && deportes.size() > 0) {
+        if (deportes != null && !deportes.isEmpty()) {
             salida[4] = String.join(",", deportes);
         } else {
             salida[4] = "Ninguno";

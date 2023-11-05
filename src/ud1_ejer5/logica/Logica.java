@@ -14,11 +14,14 @@ import ud1_ejer5.gui.ventanas.VPrincipal;
  */
 public class Logica {
     // ATRIBUTOS
+    
+    //lista de encuestas introducidas
     private static ArrayList<Encuesta> encuestas = new ArrayList<Encuesta>();
 
     /**
-     * Devuelve el listado de encuestas
-     * @return 
+     * Devuelve el listado de encuestas. Es usado por VPrincipal para actualizar
+     * la tabla.
+     * @return La lista de encuestas
      */
     public static ArrayList<Encuesta> getEncuestas() {
         return encuestas;
@@ -26,7 +29,7 @@ public class Logica {
     
     /**
      * Agrega una encuesta a la lista
-     * @param encuesta 
+     * @param encuesta Encuestra a agregar
      */
     public static void addEncuesta(Encuesta encuesta){
         encuestas.add(encuesta);

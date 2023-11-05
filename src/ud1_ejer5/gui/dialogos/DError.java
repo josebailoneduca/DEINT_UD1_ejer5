@@ -8,12 +8,18 @@ Lista de paquetes:
 package ud1_ejer5.gui.dialogos;
 
 /**
- * Dialogo de mensaje de aviso
+ * Dialogo de mensaje de error. Muestra como mensaje de error el mensaje suministrado
  * @author Jose Javier Bailon Ortiz
  */
 public class DError extends javax.swing.JDialog {
 
-    /** Creates new form DError */
+    
+    /**
+     * Constructor del dialogo de eror
+     * @param parent Ventana padre
+     * @param modal True si es modal, False si no lo es
+     * @param msg  Mensaje a mostrar en el dialogo
+     */
     public DError(java.awt.Frame parent, boolean modal, String msg) {
         super(parent, modal);
         initComponents();
@@ -82,6 +88,10 @@ public class DError extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Accion del botón cerrar
+     * @param evt 
+     */
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
