@@ -16,7 +16,7 @@ import ud1_ejer5.logica.Logica;
  * Jframe VPrincipal con la ventana principal de la aplicacion, el menu y la
  * tabla de encuestas introducidas
  *
- * @author Bailon
+ * @author Jose Javier BO
  */
 public class VPrincipal extends javax.swing.JFrame {
 

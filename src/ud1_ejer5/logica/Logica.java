@@ -10,7 +10,7 @@ import ud1_ejer5.gui.ventanas.VPrincipal;
 
 /**
  * Punto de entrada del programa. Contiene la logica de negocio y el almacenamiento de los datos
- * @author Bailon
+ * @author Jose Javier BO
  */
 public class Logica {
     // ATRIBUTOS
